@@ -6,6 +6,7 @@ use GW\SymfonyJsonRequest\JsonBodyToRequestListener;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 
@@ -47,7 +48,7 @@ final class JsonBodyToRequestListenerTest extends TestCase
         Assert::assertEquals($request->request->all(), []);
     }
 
-    private function createEvent(Request $request, int $type = HttpKernelInterface::MASTER_REQUEST): RequestEvent
+    private function createEvent(Request $request, int $type = HttpKernelInterface::MAIN_REQUEST): RequestEvent
     {
         return new RequestEvent($this->mockKernel(), $request, $type);
     }
@@ -55,8 +56,9 @@ final class JsonBodyToRequestListenerTest extends TestCase
     private function mockKernel(): HttpKernelInterface
     {
         return new class implements HttpKernelInterface {
-            public function handle(Request $request, int $type = self::MASTER_REQUEST, bool $catch = true): void
+            public function handle(Request $request, int $type = self::MAIN_REQUEST, bool $catch = true): Response
             {
+                return new Response();
             }
         };
     }
