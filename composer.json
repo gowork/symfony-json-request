@@ -15,7 +15,7 @@
     },
     "require": {
         "php": ">=8.0",
-        "symfony/framework-bundle": "^4.3||^5.0",
+        "symfony/framework-bundle": "^4.3||^5.0||^6.0",
         "thecodingmachine/safe": "^2.2"
     },
     "require-dev": {
