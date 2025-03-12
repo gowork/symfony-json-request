@@ -2,6 +2,8 @@
 
 Converts json request body to request array.
 
+**Starting from Symfony 6.3 there is native [$request->getPayload()](https://symfony.com/blog/new-in-symfony-6-3-request-payload) method that can be used instead of this package**
+
 ## Install
 
 ```shell
