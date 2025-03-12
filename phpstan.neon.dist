@@ -1,0 +1,7 @@
+parameters:
+    tmpDir: var/phpstan
+
+    level: 8
+
+    paths:
+        - src

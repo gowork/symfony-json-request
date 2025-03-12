@@ -13,13 +13,13 @@ final class JsonBodyToRequestListener
     {
         $request = $event->getRequest();
 
-        if ($request->getContentType() !== 'json' || !$event->isMainRequest()) {
+        if ($request->getContentTypeFormat() !== 'json' || !$event->isMainRequest()) {
             return;
         }
 
         $content = $request->getContent();
 
-        if (!is_string($content) || $content === '') {
+        if ($content === '') {
             return;
         }
 
