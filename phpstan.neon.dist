@@ -1,0 +1,11 @@
+parameters:
+    treatPhpDocTypesAsCertain: false
+    tmpDir: var/phpstan
+
+    level: 8
+
+    paths:
+        - src
+
+    ignoreErrors:
+        - identifier: function.alreadyNarrowedType
